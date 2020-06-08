@@ -1,0 +1,74 @@
+# {
+#   job(id: "rJKAbDd_z") { 
+#     id title
+#     company {id name}
+#   }
+# }
+
+# query JobQuery($id: ID!) {
+#   job (id: $id) {
+#     id title description
+#     company { id name }
+#   }
+# }
+
+# query {
+#   companies {id name description}
+# }
+
+# query CompanyQuery ($id: ID!){
+#   company (id: $id) {id name description}
+# }
+
+# query {
+#   companies { id name
+#   	jobs { title }
+#   }
+# }
+
+# alias
+# mutation {
+#   job: createJob(
+#     title: "lol another onejob",
+#     description: "test",
+#     companyId: "SJV0-wdOM"
+#   ) { id title company {name description}}
+# }
+
+# variables
+# mutation CreateJob($companyId: ID, $title: String, $description: String) {
+#   job: createJob(
+#     title: $title,
+#     description: $description,
+#     companyId: $companyId
+#   ) { id title company {name description}}
+# }
+
+# input
+# mutation CreateJob($input: CreateJobInput) {
+#   job: createJob(
+#     input: $input
+#   ) { id title company {name description}}
+# }
+
+# input
+# mutation {
+#   job: createJob(
+#     input: {
+#       companyId: "SJV0-wdOM"
+#   		title: "try one"
+#   		description: "try description" 
+#     }
+#   ) { id title company {name description}}
+# }
+
+# query JobQuery($id: ID!) {
+#   job (id: $id) {
+#     ...JobDetail
+#   }
+# }
+
+# fragment JobDetail on Job {
+#     id title description
+#     company { id name }
+# }
